@@ -7,6 +7,47 @@ notepad C:\Windows\System32\drivers\etc\hosts
 
 
 ```
+$sites = @(
+    "roblox.com", "www.roblox.com", "tiktok.com", "poki.com", "crazygames.com",
+    "vseigru.net", "epicgames.com", "fortnite.com", "steampowered.com",
+    "steamcommunity.com", "game.brawlstarsgame.com", "supercell.com",
+    "authserver.mojang.com", "sessionserver.mojang.com", "poki.com.ua",
+    "y8.com", "titotu.io", "agar.io", "slither.io", "paper.io", "diep.io"
+)
+
+$hostsPath = "$env:windir\System32\drivers\etc\hosts"
+
+# Перевіряємо чи файл існує
+if (!(Test-Path $hostsPath)) { 
+    New-Item -Path $hostsPath -ItemType File -Force 
+}
+
+# Читаємо поточний вміст
+$currentContent = Get-Content $hostsPath
+
+$toAdd = @()
+foreach ($site in $sites) {
+    $entry = "127.0.0.1 $site"
+    # Перевірка, чи рядок вже є у файлі
+    if ($currentContent -notcontains $entry) {
+        $toAdd += $entry
+    }
+}
+
+if ($toAdd.Count -gt 0) {
+    # Додаємо нові записи в кінець файлу
+    $finalText = "`r`n# Blocked Sites`r`n" + ($toAdd -join "`r`n")
+    Add-Content -Path $hostsPath -Value $finalText -Force
+    Write-Host "✅ Успішно додано $($toAdd.Count) сайтів!" -ForegroundColor Green
+} else {
+    Write-Host "ℹ️ Усі сайти вже заблоковані." -ForegroundColor Yellow
+}
+
+# Відкриваємо блокнот для перевірки результату
+notepad $hostsPath
+```
+
+```
 $taskName = "dns_sync"
 $url = "https://raw.githubusercontent.com/robocode-pb/win/refs/heads/main/dns.txt"
 
