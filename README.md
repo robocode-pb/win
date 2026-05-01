@@ -8,9 +8,9 @@ notepad C:\Windows\System32\drivers\etc\hosts
 
 ```
 $sites = @(
-    "roblox.com", "www.roblox.com", "tiktok.com", "poki.com", "crazygames.com",
-    "vseigru.net", "epicgames.com", "fortnite.com", "steampowered.com",
-    "steamcommunity.com", "game.brawlstarsgame.com", "supercell.com",
+    "avast.com","roblox.com", "www.roblox.com", "tiktok.com", "poki.com", "crazygames.com",
+    "opera.com","vseigru.net", "epicgames.com", "fortnite.com", "steampowered.com",
+    "avast.ua","steamcommunity.com", "game.brawlstarsgame.com", "supercell.com",
     "authserver.mojang.com", "sessionserver.mojang.com", "poki.com.ua",
     "y8.com", "titotu.io", "agar.io", "slither.io", "paper.io", "diep.io"
 )
