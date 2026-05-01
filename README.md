@@ -2,6 +2,11 @@
 
 
 ```
+notepad C:\Windows\System32\drivers\etc\hosts
+```
+
+
+```
 
 $taskName = "dns"
 $url = "https://raw.githubusercontent.com/robocode-pb/win/refs/heads/main/dns.txt"
